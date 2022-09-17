@@ -78,9 +78,18 @@ export default {
     mapRemoteMessage: function (message) {
       let mapped = {};
       // map property from message into mapped according to mapping config (only if field has a value):
-      for (const prop in this.item.mapping)
-        if (message[this.item.mapping[prop]])
+      for (const prop in this.item.mapping) {
+        if (message[this.item.mapping[prop]]) {
+          // Replace the keyword
           mapped[prop] = message[this.item.mapping[prop]];
+        } else if (this.item.mapping[prop]) {
+          // Replace the keywords in the string if they start with a $
+          for (const p in message) {
+            this.item.mapping[prop] = this.item.mapping[prop].replaceAll("$" + p, message[p])
+          }
+          mapped[prop] = this.item.mapping[prop]
+        }
+      }
       return mapped;
     },
   },

@@ -32,6 +32,7 @@ within Homer:
   - [What's Up Docker](#whats-up-docker)
   - [SABnzbd](#sabnzbd)
   - [OctoPrint](#sabnzbd)
+  - [Miniflux](#miniflux)
 
 If you experiencing any issue, please have a look to the [troubleshooting](troubleshooting.md) page.
 
@@ -391,3 +392,19 @@ The OctoPrint service only needs an `apikey` & `url` and optionally a `display` 
   display: "text" # 'text' or 'bar'. Default to `text`.
   type: "OctoPrint"
 ```
+
+## Miniflux
+
+_[Miniflux](https://miniflux.app/) is a minimalist and opinionated feed reader._
+
+This service communicates with the Miniflux API which needs to be accessible using an API key token which can be generated in the Miniflux management interface. The following configuration is available for the Miniflux service.
+
+```yaml
+- name: "Miniflux"
+  logo: "assets/tools/sample.png"
+  url: "http://192.168.1.12:8080"
+  api_token: "my_secret_api_token"
+  type: "Miniflux"
+```
+
+If you are using a reverse proxy, make sure the correct CORS settings are applied.

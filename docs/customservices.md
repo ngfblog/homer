@@ -446,3 +446,26 @@ The Immich server must be running at least version 1.85.0 for the correct api en
   apikey: "<--- Your api key --->" # administrator user
   updateInterval: 5000 # (Optional) Interval (in ms) for updating the stats
 ```
+
+## Wikijs
+
+Using the Wikijs service you can display info about your local Wikijs instance version right on your Homer dashboard.
+Displaying the new version if available with a orange glowing dot. (Subtitle: A new version is available!)
+Displaying a green glowing dot if wikijs is up-to-date. (Subtitle: Wiki.js is up-to-date)
+Subtitle can be overriden by the subtitle field on your configuration item.
+
+The following configuration is available for the Wikijs service.
+
+```yaml
+items:
+  - name: 'Wiki.js'
+    logo: 'assets/tools/sample.png'
+    # subtitle: "Documentation platform" # optional, if no subtitle is defined, Wikijs message will be shown (A new version is available! / Wiki.js is up-to-date.)
+    url: 'http://192.168.0.152'
+    apikey: '01234deb70424befb1f4ef6a23456789'
+    type: 'Wikijs'
+```
+
+**Remarks:**
+You have to enable the API communication in wikijs and set the API key in the apikey field of your configuration item.
+The Wiki.js API key and activation can be found in Administration > API Access. (You have to generate one API key)
